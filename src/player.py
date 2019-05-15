@@ -8,4 +8,8 @@ class Player:
         self.cur_room = cur_room
 
     def __repr__(self):
-        return self.name + " is in the " + self.cur_room + "."
+        return self.name + " is in the " + self.cur_room.name + "."
+
+    # def currentRoom(self):
+    #     return self.cur_room
+
