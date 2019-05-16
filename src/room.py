@@ -3,15 +3,11 @@
 
 class Room:
     
-    def __init__(self, name, description):
-        # , n_to, s_to, e_to, w_to
+    def __init__(self, name, description, inventory=[]):
         self.name = name
         self.description = description
-        # self.n_to = n_to
-        # self.s_to = s_to
-        # self.e_to = e_to
-        # self.w_to = w_to
+        self.inventory = ["dog"]
 
     def __repr__(self):
-        return "The " + self.name + " is described is as follows: " + self.cur_room + "."
+        return "You find yourself " + self.name + ". " + self.description + "."
         # return "The " + self.name + " is described is as follows: " + self.cur_room.description + "."

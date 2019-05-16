@@ -1,11 +1,12 @@
 from room import Room
 from player import Player
+from item import Item
 
 # Declare all the rooms
 
 room = {
     'outside':  Room("Outside Cave Entrance",
-"North of you, the cave mount beckons"),
+"North of you, the cave mount beckons", [Item("Excalibur", """The sword fo excalibur""", 20)]),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
 passages run north and east."""),
@@ -22,6 +23,12 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
+item = {
+    'sword': Item("Excalibur", """The sword fo excalibur""", 20),
+    'Shield': Item("Chest Shield", """Body armor for protection""", 15)
+}
+
+item['sword']
 
 # Link rooms together
 
@@ -37,35 +44,65 @@ room['treasure'].s_to = room['narrow']
 #
 # Main
 #
-
+options = {
+    "n": "North",
+    "e": "East",
+    "s": "South",
+    "w": "West",
+    "q": "Quit"
+}
 
 # Make a new player object that is currently in the 'outside' room.
 
 player_one = Player("Player One", room["outside"])
+direction = ""
 
-print(player_one)
+# print(player_one)
+
+while direction != 'q':
+    moveOptions = ""
+    print(player_one.cur_room)
+    print(player_one.cur_room.inventory)
+    for opt in options:
+        moveOptions = options[opt], opt
+        print(opt)
+    
+    while direction != 'q':
+        direction = input("\n Chose a direction (n, e, s, w) to move: ")
+        if hasattr(player_one.cur_room, f'{direction}_to'):
+            # print(f'move options{direction}')
+            # print("TRUE")
+            if direction == 'n':
+                player_one.cur_room = player_one.cur_room.n_to
+                print("You are in " + str(player_one.cur_room))
+            if direction == 'e':
+                player_one.cur_room = player_one.cur_room.e_to
+                print("You are in " + str(player_one.cur_room))
+            if direction == 's':
+                player_one.cur_room = player_one.cur_room.s_to
+                print("You are in " + str(player_one.cur_room))
+            if direction == 'w':
+                player_one.cur_room = player_one.cur_room.w_to
+                print("You are in " + str(player_one.cur_room))
+        elif direction == 'q':
+            print("Game Over!")
+        else:
+            print("Not a valid command.")
+
 
 # Write a loop that:
 #
 # * Prints the current room name
 #  --> look up room in dictionary...?
-
-# print(room[player_one.cur_room].name)
-
 # * Prints the current description (the textwrap module might be useful here).
-
-# print(room[player_one.cur_room].description)
-
 # * Waits for user input and decides what to do.
-#
-
 # direction = input("Ender a direction (n,e,s,w) or q to quit.")
-
 # If the user enters a cardinal direction, attempt to move to the room there.
 # If user enters 'q', wite the game.
 
-# while direction != 'q':
-#     if direction == 'n' or 'e' or 's' or 'w':
+            
+
+# print("No, really! Thanks for playing.")
 
     # did user enter a valid direction?
     # Yes? - move in that direction, print new room info
