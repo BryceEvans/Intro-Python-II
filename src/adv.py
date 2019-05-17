@@ -6,29 +6,29 @@ from item import Item
 
 room = {
     'outside':  Room("Outside Cave Entrance",
-"North of you, the cave mount beckons", [Item("Excalibur", """The sword fo excalibur""", 20)]),
+"North of you, the cave mount beckons", [Item("Compass", """Compass for navigation""", 15)]),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
+passages run north and east.""", [Item("Map", """Map of fortress""", 10)]),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
+the distance, but there is no way across the chasm.""", [Item("Sword", """Sword of Sumner""", 20)]),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
+to north. The smell of gold permeates the air.""", [Item("Necklace", """Fallen necklace""", 5 )]),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+earlier adventurers. The only exit is to the south.""", [Item("Shield", """Chest Shield""", 20)]),
 }
 
-item = {
-    'sword': Item("Excalibur", """The sword fo excalibur""", 20),
-    'Shield': Item("Chest Shield", """Body armor for protection""", 15)
-}
+# item = {
+#     'sword': Item("Excalibur", """The sword fo Excalibur""", 20),
+#     'Shield': Item("Chest Shield", """Body armor for protection""", 15)
+# }
 
-item['sword']
+# item['sword']
 
 # Link rooms together
 
@@ -61,8 +61,10 @@ direction = ""
 
 while direction != 'q':
     moveOptions = ""
+    print("\n")
     print(player_one.cur_room)
     print(player_one.cur_room.inventory)
+    # print(player_one.cur_room.item)
     for opt in options:
         moveOptions = options[opt], opt
         print(opt)
@@ -75,15 +77,19 @@ while direction != 'q':
             if direction == 'n':
                 player_one.cur_room = player_one.cur_room.n_to
                 print("\n You are in " + str(player_one.cur_room))
+                print(player_one.cur_room.inventory)
             if direction == 'e':
                 player_one.cur_room = player_one.cur_room.e_to
                 print("\n You are in " + str(player_one.cur_room))
+                print(player_one.cur_room.inventory)
             if direction == 's':
                 player_one.cur_room = player_one.cur_room.s_to
                 print("\n You are in " + str(player_one.cur_room))
+                print(player_one.cur_room.inventory)
             if direction == 'w':
                 player_one.cur_room = player_one.cur_room.w_to
                 print("\n You are in " + str(player_one.cur_room))
+                print(player_one.cur_room.inventory)
         elif direction == 'q':
             print("\n Game Over!")
         else:
