@@ -6,7 +6,7 @@ class Room:
     def __init__(self, name, description, inventory=[]):
         self.name = name
         self.description = description
-        self.inventory = ["dog"]
+        self.inventory = inventory
 
     def __repr__(self):
         return "You find yourself " + self.name + ". " + self.description + "."

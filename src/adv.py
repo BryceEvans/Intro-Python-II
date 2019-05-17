@@ -74,20 +74,20 @@ while direction != 'q':
             # print("TRUE")
             if direction == 'n':
                 player_one.cur_room = player_one.cur_room.n_to
-                print("You are in " + str(player_one.cur_room))
+                print("\n You are in " + str(player_one.cur_room))
             if direction == 'e':
                 player_one.cur_room = player_one.cur_room.e_to
-                print("You are in " + str(player_one.cur_room))
+                print("\n You are in " + str(player_one.cur_room))
             if direction == 's':
                 player_one.cur_room = player_one.cur_room.s_to
-                print("You are in " + str(player_one.cur_room))
+                print("\n You are in " + str(player_one.cur_room))
             if direction == 'w':
                 player_one.cur_room = player_one.cur_room.w_to
-                print("You are in " + str(player_one.cur_room))
+                print("\n You are in " + str(player_one.cur_room))
         elif direction == 'q':
-            print("Game Over!")
+            print("\n Game Over!")
         else:
-            print("Not a valid command.")
+            print("\n Not a valid command.")
 
 
 # Write a loop that:
@@ -100,10 +100,6 @@ while direction != 'q':
 # If the user enters a cardinal direction, attempt to move to the room there.
 # If user enters 'q', wite the game.
 
-            
-
-# print("No, really! Thanks for playing.")
-
     # did user enter a valid direction?
     # Yes? - move in that direction, print new room info
     # Is there anything in that direction?
@@ -111,11 +107,6 @@ while direction != 'q':
         # No ? - print out message stating nothing in the direction
     # No ? - Print an error message if the movement isn't allowed.
     # continue prompting for input
-    
-    
-    # direction = input("Ender a direction (n,e,s,w) or q to quit.")
-
-
 
 # Print an error message if the movement isn't allowed.
 #
